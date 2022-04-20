@@ -8,12 +8,14 @@ void swap(int *p1, int *p2){   // p1, p2 acted here as apointer that can store a
 }
 
 void selection_sort(int arr[], int size){
-    int i, j, key;
-    for(int i=0; i<size; i++){
-        for(int j=0; j<size-i-1; j++){
-            if(arr[j] > arr[j+1]){
-                swap(&arr[j], &arr[j+1]);
-            }
+    int i, j, minIndex;
+    for(int i=0; i<size-1; i++){
+        minIndex = i; 
+        for(int j=i+1; j<size; j++){
+            if(arr[j] < arr[minIndex]){
+                minIndex = j;
+            } 
+                swap(&arr[minIndex], &arr[i]);
         }
     }
 }
